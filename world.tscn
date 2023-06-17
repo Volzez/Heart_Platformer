@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlcfw0fdeml3d"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_qnhc6"]
+[ext_resource type="PackedScene" uid="uid://6ld2ary1qlg0" path="res://player.tscn" id="2_40tpe"]
+[ext_resource type="PackedScene" uid="uid://d2xtkcfp5e3s8" path="res://spikes.tscn" id="3_y012w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymhxr"]
+size = Vector2(32, 90)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_qnhc6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-18.9001, 228.8)
+scale = Vector2(1.11079, 1.1952)
+polygon = PackedVector2Array(80.7778, -171.353, 107.704, -171.353, 107.704, -32.1286, 148.093, -32.1286, 188.482, 21.4191, 221.753, 27.3435, 255.796, 21.4191, 282.722, -10.7095, 363.5, -10.7095, 403.889, 21.4191, 403.889, 74.9667, 430.815, 74.9667, 430.815, 21.4191, 484.667, 21.4191, 511.593, -21.4191, 571.575, -24.0964, 571.575, -184.739, 629.192, -184.739, 636.394, 69.6118, 636.394, 89.6921, 80.7778, 96.3858)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_40tpe")]
+position = Vector2(128, 56)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(520, 67)
+shape = SubResource("RectangleShape2D_ymhxr")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_left = 504.0
+offset_top = 24.0
+offset_right = 536.0
+offset_bottom = 112.0
+
+[node name="Spikes" parent="." instance=ExtResource("3_y012w")]
+position = Vector2(488, 320)
+
+[node name="Spikes2" parent="." instance=ExtResource("3_y012w")]
+position = Vector2(504, 320)

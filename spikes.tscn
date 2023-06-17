@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2xtkcfp5e3s8"]
+
+[ext_resource type="Texture2D" uid="uid://bvmd054wqqmta" path="res://spikes.png" id="1_jk42g"]
+
+[node name="Spikes" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-50, -12)
+scale = Vector2(1.25, 1.5)
+texture = ExtResource("1_jk42g")
